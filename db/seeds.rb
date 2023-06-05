@@ -5,3 +5,45 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require 'faker'
+
+Order.destroy_all
+CartItem.destroy_all
+Item.destroy_all
+Cart.destroy_all
+User.destroy_all
+
+5.times do
+  User.create!(
+    email: Faker::Internet.unique.email,
+    password: "123456")
+end
+
+7.times do 
+  Cart.create!(
+    user_id: rand(User.first.id..User.last.id)
+  )
+end 
+
+10.times do 
+  Item.create!(
+    title: Faker::Commerce.product_name,
+    description: Faker::Lorem.sentence,
+    price: rand(1..100)
+  )
+end 
+
+6.times do 
+  CartItem.create!(
+    item_id: rand(Item.first.id..Item.last.id),
+    cart_id: rand(Cart.first.id..Cart.last.id)
+  )
+end 
+
+10.times do 
+  Order.create!(
+    user_id: rand(User.first.id..User.last.id),
+    cart_id: rand(Cart.first.id..Cart.last.id)
+  )
+end 
