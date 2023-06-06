@@ -5,7 +5,7 @@
     <p class="card-text"><%= item.description %></p>
     <div class="btn_main row">
       <div class="d-flex justify-content-between">
-        <a href="<%= item_path(item) %>" class="btn btn-success" role="button" style="width: 6em">Acheter</a>
+        <%= button_to 'Ajouter au panier', add_to_cart_item_path(item), method: :post, class: 'btn btn-success' %>
         <h5 class="item_price"><%= item.price %> €</h5>
         <a href="<%= item_path(item) %>" class="btn btn-light" role="button" style="width: 6em">Voir</a>
       </div>

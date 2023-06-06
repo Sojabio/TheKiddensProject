@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "items#index"
-  resources :items
+  resources :items do
+    member do
+      post 'add_to_cart'
+    end
+  end
   resources :carts
   resources :orders
   get '/users/show/:id', to: 'users#show'
