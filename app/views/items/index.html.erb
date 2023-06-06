@@ -1,22 +1,17 @@
-<div class="product_section">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h1>Our Products</h1>
-        <p>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+<header>
+  <%= render partial: 'banner'%>
+</header>
 
-      </div>
-          <div>
+<main>
+  <div class="product_section">
+    <div class="container">
       <div class="row p-5 m-5">
-      
-            <% @items.each do |item| %>
-            <div class="col-md-4 mb-4">
-              <%= render partial: 'items/card', locals: { item: item } %>
-            </div>
-            <% end %>
-
+        <% @items.each do |item| %>
+          <div class="col-md-4 mb-4">
+            <%= render partial: 'items/card', locals: { item: item } %>
+          </div>
+        <% end %>
       </div>
-        </div>
     </div>
   </div>
-</div>
+</main>
