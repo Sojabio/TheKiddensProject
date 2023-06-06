@@ -1,4 +1,5 @@
 <div class="container" style="width:80%, align-items:left" >
+  <hr>
   <h5>Référence de la commande : <%= myorder.id%></h5>
     <table class="table">
       <thead>
@@ -8,13 +9,15 @@
         </tr>
       </thead>
       <tbody>
+      <% counter = 0 %>
         <% myorder.items.each do |item| %>
           <tr>
             <td> <%= item.title %> </td>
             <td> <%= item.price %> </td>
+            <% counter = counter + item.price%>
           </tr>
         <%end%>
       </tbody>
     </table>
-
+  <p style="color:#ffff; text-align:end"> Total : <%= counter %> </p>
 </div>
