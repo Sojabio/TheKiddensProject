@@ -12,7 +12,7 @@
 
   <div class="row">
     <h2>Mes commandes</h2>
-    <% if @current_user.orders == nil %>
+    <% if @current_user.orders.size == 0 %>
       <p>Tu n'as pas encore passé de commande sur notre super site.</p>
     <% else %>
       <% @current_user.orders.each do |order| %>
