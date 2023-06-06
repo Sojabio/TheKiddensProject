@@ -1,0 +1,23 @@
+<%= render partial: 'items/small_banner' %>
+<br>
+<div class="container">
+  <div class="row">
+    <h2>Profil</h2>
+    <div class="col">
+      <p> Ton email : <%= @current_user.email%> </p>
+      <%= link_to "Modifier tes informations", edit_user_registration_path, class:"btn btn-primary" %>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <h2>Mes commandes</h2>
+    <% if @current_user.orders == nil %>
+      <p>Tu n'as pas encore passé de commande sur notre super site.</p>
+    <% else %>
+      <% @current_user.orders.each do |order| %>
+        <%= render partial: 'order', locals: { myorder: order }%>
+      <% end %>
+    <% end %>
+  </div>
+</div>
