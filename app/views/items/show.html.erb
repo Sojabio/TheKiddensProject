@@ -8,8 +8,9 @@
             <p class="p-2"><%= image_tag("cat.png", class: "image_1") %></p>
             <p><%= @item.description%></p>
             <h4>Prix: <%= @item.price%> €</h4>
+            <%= button_to 'Ajouter au panier', add_to_cart_item_path(@item), method: :post, class: 'btn btn-success' %>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 </body>
