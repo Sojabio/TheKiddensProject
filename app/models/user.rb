@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   after_create :create_cart
+  after_create :welcome_send
 
   has_many :orders
   has_many :carts
@@ -11,10 +12,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  private
+def welcome_send
+ UserMailer.welcome_email(self).deliver_now
+end
 
+private
   def create_cart
     self.carts.create!
   end
-  
+
 end

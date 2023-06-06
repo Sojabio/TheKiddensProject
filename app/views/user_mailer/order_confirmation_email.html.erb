@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Salut <%= @user.email %> et merci pour ta commande !</h1>
+    <p>
+      Ta commande, référence n°<%=@order.id%>, a bien été prise en compte.
+      Détails de la commande :
+      <ul>
+        <% @order.items.each do |item|  %>
+          <li> <%= item.title %> : <%= item.description %> - Prix : <%= item.price %>.</li>
+        <% end %>
+      </ul>
+    </p>
+    <p>
+      Merci pour ton a-chat !!
+    </p>
+  </body>
+</html>
