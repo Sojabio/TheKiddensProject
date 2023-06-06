@@ -1,4 +1,9 @@
 <header>
+  <% if params[:success] %>
+  <div class="alert alert-success" role="alert">
+    Votre chat a été ajouté à votre panier !
+  </div>
+  <% end %>
   <%= render partial: 'banner'%>
 </header>
 
