@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   end
   resources :carts
   resources :orders
-  get '/users/show/:id', to: 'users#show'
+  resources :users
+  resources :cart_items, except: [:show]
 end
