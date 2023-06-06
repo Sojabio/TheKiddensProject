@@ -1,0 +1,20 @@
+<div class="container" style="width:80%, align-items:left" >
+  <h5>Référence de la commande : <%= myorder.id%></h5>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nom du produit</th>
+          <th scope="col">Prix</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% myorder.items.each do |item| %>
+          <tr>
+            <td> <%= item.title %> </td>
+            <td> <%= item.price %> </td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+
+</div>
