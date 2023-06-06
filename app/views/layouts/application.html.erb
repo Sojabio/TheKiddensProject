@@ -24,32 +24,21 @@
               <span class="visually-hidden">(current)</span>
             </a>
           </li>
+          <% if !user_signed_in? %>
           <li class="nav-item">
-            <a class="nav-link" href="/users/sign_in">Connexion</a>
+              <%= button_to "Connexion", new_user_session_path, class: "btn btn-success"%>
+          </li>
+          <%end%>
+          <% if user_signed_in? %>
+          <li class="nav-item">
+            <a class="nav-link" href="/carts/<%=current_user.carts.first.id%>">Mon Panier</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/carts/1">Mon Panier</a>
+            <%= button_to "Deconnexion", destroy_user_session_path, :method => :delete, class: "btn btn-danger"%>
           </li>
-          <li class="nav-item">
-            <%= form_tag destroy_user_session_path, method: :delete do %>
-              <%= submit_tag "Déconnexion", class: "btn btn-danger" %>
-            <% end %>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
+          <% end %>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-sm-2" type="search" placeholder="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </nav>
