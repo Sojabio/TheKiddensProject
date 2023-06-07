@@ -46,7 +46,7 @@
                     </tr>
                     <tr>
                       <td colspan="4" class="button-row">
-                        <button type="button" class="btn btn-success">Passer au paiement</button>
+                        <%= button_to "Passer commande", checkout_create_path(total: @total), class: "btn btn-success", data: {turbo: false} %>
                         <a href="<%= root_path %>" class="btn btn-light" role="button">Continuer mes achats</a>
                       </td>
                     </tr>

@@ -11,8 +11,8 @@ class ItemsController < ApplicationController
         @item = Item.find(params[:id])
         if current_user
             @cart = current_user.carts
-            @cart_items = current_user.carts.first.cart_items
-        
+            @cart_items = current_user.carts.last.cart_items
+
             @cart_items.create!(item: @item)
             redirect_to root_path(success: true)
         else
