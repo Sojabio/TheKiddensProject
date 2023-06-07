@@ -4,7 +4,11 @@ class CartsController < ApplicationController
   end
 
   def show
+    @user_cart = Cart.find(params[:id])
     @cart = current_user.carts.last
+    unless @user_cart == @cart
+      redirect_to root_path(access_denied: true)
+    end
     @cart_items = @cart.cart_items
     @total = @cart_items.sum {|cart_item| cart_item.item.price}
   end
