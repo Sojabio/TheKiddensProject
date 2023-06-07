@@ -1,0 +1,7 @@
+Une nouvelle commande a été passée !
+
+Une commande, référence n°<%=@order.id%>, a été passée.
+  Détails de la commande :
+  <% @order.items.each do |item| %>
+    <%= item.title %> : <%= item.description %> - Prix : <%= item.price %>.
+  <% end %>

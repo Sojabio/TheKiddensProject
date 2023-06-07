@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Une commande a été passée!</h1>
+    <p>
+      Une nouvelle commande, référence n°<%=@order.id%>, a bien été passée.
+      Détails de la commande :
+      <ul>
+        <% @order.items.each do |item|  %>
+          <li> <%= item.title %> : <%= item.description %> - Prix : <%= item.price %>.</li>
+        <% end %>
+      </ul>
+    </p>
+  </body>
+</html>
