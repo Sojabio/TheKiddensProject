@@ -26,12 +26,21 @@ end
   )
 end
 
+array_url_photos = ["app/assets/images/cat.png"]
+# "app/assets/images/cat_dalle_1.png","app/assets/images/cat_dalle_2.png",
+
+array_name_photos = ["cat_dalle_1.png","cat_dalle_2.png","cat_dalle_3.png","cat_dalle_4.png", "cat.png"]
+
 10.times do
-  Item.create!(
+  i = Item.create!(
     title: Faker::Commerce.product_name,
     description: Faker::Lorem.sentence,
-    price: rand(1..100)
+    price: rand(1..100),
+    image_url: array_name_photos.sample
   )
+  
+  i.photo.attach(io: File.open(File.join(Rails.root, "app/assets/images/#{i.image_url}")), filename: i.image_url)
+  
 end
 
 6.times do
