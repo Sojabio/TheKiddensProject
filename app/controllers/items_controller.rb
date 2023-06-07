@@ -4,11 +4,11 @@ class ItemsController < ApplicationController
     end
 
     def show
-        @item = Item.find(params[:id])
+        @item = Item.friendly.find(params[:id])
     end
 
     def add_to_cart
-        @item = Item.find(params[:id])
+        @item = Item.friendly.find(params[:id])
         if current_user
             @cart = current_user.carts
             @cart_items = current_user.carts.last.cart_items

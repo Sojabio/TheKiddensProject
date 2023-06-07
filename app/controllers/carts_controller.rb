@@ -4,7 +4,7 @@ class CartsController < ApplicationController
   end
 
   def show
-    @user_cart = Cart.find(params[:id])
+    @user_cart = Cart.friendly.find(params[:id])
     @cart = current_user.carts.last
     unless @user_cart == @cart
       redirect_to root_path(access_denied: true)
