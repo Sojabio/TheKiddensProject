@@ -22,18 +22,15 @@
           <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="/items">Home
-                  <span class="visually-hidden">(current)</span>
-                </a>
+                 <%= link_to "Home", root_path, class: "nav-link"%>
               </li>
               <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to "Mon Profil", user_path(current_user.id), :method => :delete, class: "nav-link"%>
+                <%= link_to "Mon Profil", user_path(current_user.slug), class: "nav-link"%>
               </li>
               <li class="nav-item">
-                <%= link_to "Mon Panier", cart_path(current_user.carts.last), :method => :delete, class: "nav-link"%>
+                <%= link_to "Mon Panier", cart_path(current_user.carts.last.slug), class: "nav-link"%>
               </li>
-
               <% end %>
               </li>
             </ul>
