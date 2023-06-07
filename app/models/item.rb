@@ -8,8 +8,9 @@ class Item < ApplicationRecord
 
   validates :price, numericality: { greater_than: 0 }
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   #rajouter les images en obligatoire dans la validation
-
-
 
 end

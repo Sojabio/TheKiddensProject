@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :cart_items, through: :carts
   has_many :items, through: :cart_items
 
+  extend FriendlyId
+  friendly_id :email, use: :slugged
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
