@@ -9,6 +9,11 @@
     Vous devez être connecté pour ajouter un a-chat à votre panier !
   </div>
   <% end %>
+    <% if params[:access_denied] %>
+  <div class="alert alert-danger" role="alert">
+    Vous n'avez pas accès à cet espace !
+  </div>
+  <% end %>
   <%= render partial: 'banner'%>
 </header>
 
