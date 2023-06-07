@@ -2,7 +2,7 @@ Salut <%= @user.email %> et merci pour ta commande !
 
 Ta commande, référence n°<%=@order.id%>, a bien été prise en compte.
   Détails de la commande :
-  <% @order.items.size.times do |item| %>
+  <% @order.items.each do |item| %>
     <%= item.title %> : <%= item.description %> - Prix : <%= item.price %>.</li>
   <% end %>
   Merci pour ton a-chat !!
