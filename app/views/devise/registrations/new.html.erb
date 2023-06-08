@@ -15,6 +15,11 @@
             </div>
 
             <div class="form-group">
+              <%= f.label :nom, class:" form-label mt-4" %><br />
+              <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"form-control" %>
+            </div>
+
+            <div class="form-group">
               <%= f.label :Mot_de_passe, class:" form-label mt-4" %>
               <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> caractères minimum)</em>

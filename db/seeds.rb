@@ -14,8 +14,16 @@ Item.destroy_all
 Cart.destroy_all
 User.destroy_all
 
+User.create!(
+  name: "Chadmin",
+  email: "chadmin@admin.fr",
+  password: "password",
+  is_admin: true
+)
+
 5.times do
   User.create!(
+    name: Faker::Name.first_name,
     email: Faker::Internet.unique.email,
     password: "123456")
 end
