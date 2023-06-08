@@ -16,7 +16,7 @@
       <p>Tu n'as pas encore passé de commande sur notre super site.</p>
     <% else %>
       <% current_user.orders.reverse_each do |order| %>
-        <%= render partial: 'order', locals: { myorder: order }%>
+        <%= render partial: 'users/order', locals: { myorder: order }%>
       <% end %>
     <% end %>
   </div>

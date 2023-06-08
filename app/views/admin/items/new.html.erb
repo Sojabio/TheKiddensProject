@@ -1,0 +1,42 @@
+<br><br><br>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-5">
+      <h1>Creer un nouveau produit produit</h1>
+      
+      <%= form_for([:admin, @item]) do |f| %>
+
+        <%= render "devise/shared/error_messages", resource: @item %>
+
+        <div class="form-group">
+          <%= f.label :title, "Nom" %><br />
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :description, "Description" %><br />
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :price, "Prix" %><br />
+          <%= f.number_field :price, class: "form-control" %>
+        </div>
+
+        <br>
+        <div class="form-group">
+          <%= f.label :photo, "Photo" %><br />
+          <%= f.file_field :photo, class: "form-control" %>
+        </div>
+        <br>
+        <br><br>
+
+        <div class="form-actions">
+          <%= f.submit "Creer le produit", class: "btn btn-dark" %>
+          <%= link_to "Retour", items_path, class: "btn btn-dark float-end" %>
+        </div>
+
+        <% end %>
+    </div>
+  </div>
+</div>

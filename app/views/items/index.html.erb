@@ -21,10 +21,12 @@
   <div class="product_section">
     <div class="container">
       <div class="row p-5 m-5">
-        <% @items.each do |item| %>
-          <div class="col-md-4 mb-4">
-            <%= render partial: 'items/card', locals: { item: item } %>
-          </div>
+        <% @items.sort_by(&:updated_at).reverse.each do |item| %>
+          <% if item.is_hidden == false %>
+            <div class="col-md-4 mb-4">
+              <%= render partial: 'items/card', locals: { item: item } %>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>

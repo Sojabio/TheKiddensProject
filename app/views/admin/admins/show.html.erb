@@ -1,0 +1,18 @@
+<br><br>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-5">
+      <h1>Bienvenue <%= @user.name %> sur ton Dashboard Admin</h1>
+<br><br>
+      <br><br>
+      <div>
+        <h2>Gestion des produits</h2>
+        <%= link_to "Gérer les produits", admin_items_path, class: "btn btn-dark" %>
+      </div><br>
+        <div>
+        <h2>Tableau des commandes</h2>
+        <%= link_to "Voir les commandes", admin_orders_path, class: "btn btn-dark" %>
+      </div>
+    </div>
+  </div>
+</div>

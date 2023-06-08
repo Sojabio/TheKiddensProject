@@ -1,0 +1,40 @@
+<br><br>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-5">
+      <div>
+        <h1>Liste des produits</h1>
+        <td><%= link_to "Ajouter un chat", new_admin_item_path, class: "btn btn-primary" %></td>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Description</th>
+              <th>Prix</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @items.sort.reverse.each do |item| %>
+              <tr>
+                <td><%= image_tag item.photo, width: 100, height: 100 %></td>
+                <td><%= truncate(item.title, length: 15) %></td>
+                <td><%= truncate(item.description, length: 15) %></td>
+                <td><%= item.price %></td>
+                <td><%= link_to "Modifier", edit_admin_item_path(item), class: "btn btn-primary" %></td>
+                <td>
+                <%if item.is_hidden == false%>
+                  <%= button_to "Masquer", chabracadabra_admin_item_path(item), method: :post, data: { confirm: "Êtes-vous sûr de vouloir supprimer cet utilisateur ?" }, class: "btn btn-danger" %>
+                <%else%>
+                  <%= button_to "Montrer", chabracadabra_admin_item_path(item), method: :post, data: { confirm: "Êtes-vous sûr de vouloir supprimer cet utilisateur ?" }, class: "btn btn-success" %> 
+                <%end%>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
