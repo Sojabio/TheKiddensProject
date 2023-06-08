@@ -1,1 +1,15 @@
-<p> view index des orders </p>
+<%= render partial: 'items/small_banner' %>
+<br>
+<div class="container">
+  <div class="row">
+    <h2>Voici l'historique des commandes :</h2><br></br>
+    <% if Order.all == nil %>
+      <p>Il n'y a pas encore de commande effectué.</p>
+    <% else %>
+      <h5>A date, <%= Order.all.count %> ont été passées, pour un montant de <%= @total_order %> €</h5>
+      <% Order.all.reverse_each do |order| %>
+        <%= render partial: 'order', locals: { myorder: order }%>
+      <% end %>
+    <% end %>
+  </div>
+</div>

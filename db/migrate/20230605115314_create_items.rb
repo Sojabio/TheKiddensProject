@@ -5,6 +5,7 @@ class CreateItems < ActiveRecord::Migration[7.0]
       t.text :description
       t.decimal :price
       t.string :image_url
+      t.boolean :is_hidden, default: "false"
 
       t.timestamps
     end
