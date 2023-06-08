@@ -46,9 +46,9 @@ array_name_photos = ["cat_dalle_1.png","cat_dalle_2.png","cat_dalle_3.png","cat_
     price: rand(1..100),
     image_url: array_name_photos.sample
   )
-  
+
   i.photo.attach(io: File.open(File.join(Rails.root, "app/assets/images/#{i.image_url}")), filename: i.image_url)
-  
+
 end
 
 6.times do
@@ -66,8 +66,4 @@ end
       check = 0
     end
   end
-
-  Order.create!(
-    user_id: rand(User.first.id..User.last.id),
-    cart_id: cart_id)
 end
