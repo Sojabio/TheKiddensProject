@@ -5,7 +5,7 @@ class Item < ApplicationRecord
 
   validates :title, :description, :price, presence: true
   
-  validates :title, uniqueness: true
+  validates :title, uniqueness: true, length: { maximum: 23 }
   
   validates :price, numericality: { greater_than: 0 }
 

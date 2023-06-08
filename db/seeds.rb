@@ -33,7 +33,7 @@ array_name_photos = ["cat_dalle_1.png","cat_dalle_2.png","cat_dalle_3.png","cat_
 
 10.times do
   i = Item.create!(
-    title: Faker::Commerce.product_name,
+    title: Faker::Commerce.product_name.truncate(23),
     description: Faker::Lorem.sentence,
     price: rand(1..100),
     image_url: array_name_photos.sample
